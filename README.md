@@ -106,21 +106,44 @@ The **Network File System (NFS)**  allows files to be accessed and shared across
     sudo systemctl start nfs-kernel-server
     
 2. **Access Shared Files:** On the client, navigate to the mounted directory to access shared files:
+    ```bash
     cd /mnt/nfs/backup
 
 3. **Show Mounted Directories**
-     showmount -e 172.30.146.44
+    ```bash
+    showmount -e 172.30.146.44
 
 4. **Unmount When Done**: To unmount the directory:
+    ```bash
     sudo umount /mnt/nfs/backup
     sudo umount /mnt/nfs/docs
     sudo umount /mnt/nfs/testfolder
 
 5. **Logs and Troubleshooting:**
     5.1  *Verify Exported Shares with exportfs*
-        exportfs
+        ```bash
+        sudo exportfs
 
     5.2 *Check Logs in /var/log/syslog for Debugging*
+        ```bash
         sudo tail -f /var/log/syslog
         grep nfs /var/log/syslog
 
+---
+## 📂 File Structure 
+NFS-Manager/
+├── exports/                # NFS server exports configuration
+│   └── nfs_exports.conf    # NFS exports configuration file
+├── setup_guide.txt         # Detailed terminal commands for NFS server and client setup
+├── README.md               # Project documentation (this file)
+├── logs/                   # Logs directory for NFS activities
+│   └── server_log.txt      # Log file to track NFS server activities
+├── server/                 # Python server-side script
+│   └── nfs_export_manager.py       # Python script for NFS server functionality
+└── client/                 # Python client-side script
+    └── nfs_manager.py       # Python script for NFS client functionality
+
+---
+
+
+## 🔮 Future Enhancements
