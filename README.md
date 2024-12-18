@@ -143,11 +143,11 @@ sudo mount -t nfs <17..30.146.44>:/exports/testfolder /mnt/nfs/testfolder
    ```
 
 5. **Logs and Troubleshooting:**
-   5.1 _Verify Exported Shares with exportfs_
+   5.1 **Verify Exported Shares with exportfs**
    ```bash
    sudo exportfs
 
-   5.2 _Check Logs in /var/log/syslog for Debugging_
+   5.2 **Check Logs in /var/log/syslog for Debugging**          
    ```bash
    sudo tail -f /var/log/syslog
    grep nfs /var/log/syslog
@@ -169,22 +169,5 @@ NFS-Manager/
 └── nfs_manager.py # Python script for NFS client functionality
 
 ---
-
-nfs-project/
-├── exports/ # NFS server exports configuration
-│ └── nfs_exports.conf # NFS exports configuration file
-├── setup_guide.txt # Detailed terminal commands for NFS server and client setup
-├── README.md # Project documentation (this file)
-├── gui/ # Placeholder for future GUI development files (if applicable)
-│ └── nfs_gui.py # Example Python file for the GUI interface (if implemented)
-├── logs/ # Logs directory for NFS activities
-│ └── server_log.txt # Log file to track NFS server activities
-├── scripts/ # Shell scripts for NFS server and client configuration
-│ ├── server_setup.sh # Automated script to set up the NFS server
-│ └── client_setup.sh # Automated script for NFS client configuration
-├── server/ # Python server-side script
-│ └── nfs_server.py # Python script for NFS server functionality
-└── client/ # Python client-side script
-└── nfs_client.py # Python script for NFS client functionality
 
 ## 🔮 Future Enhancements
