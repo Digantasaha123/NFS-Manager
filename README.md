@@ -1,4 +1,3 @@
-Great! You can add a section in your `README.md` to mention the folder where you'll store the UI screenshots. Here’s an updated version of your `README.md` with the added **UI Screenshots** section:
 
 ---
 
@@ -28,7 +27,7 @@ This project showcases the setup, configuration, and usage of a **Network File S
 
 ## 📖 Introduction
 
-The **Network File System (NFS)** is a protocol that allows files to be accessed and shared across multiple systems over a network as if they were local files. This project provides a comprehensive guide for configuring an NFS server and client, focusing on file synchronization, secure sharing, and scalability. The setup aims to demonstrate NFS concepts, enabling users to explore real-world networking challenges and solutions.
+The **Network File System (NFS)** allows files to be accessed and shared across multiple systems over a network as if they were local files. This project provides a comprehensive guide for configuring an NFS server and client, focusing on file synchronization, secure sharing, and scalability. The setup aims to demonstrate NFS concepts, enabling users to explore real-world networking challenges and solutions.
 
 ---
 
@@ -43,8 +42,8 @@ The **Network File System (NFS)** is a protocol that allows files to be accessed
   - Seamless mounting of shared directories.
   - Efficient synchronization between server and client.
 
-- **Planned GUI Integration**:
-  - A graphical interface using **Tinker** for easier NFS management, including configuring shared directories and monitoring activity.
+- **GUI Interface**:
+  - **Tinker**-based graphical interface for managing NFS settings, viewing logs, and troubleshooting issues. The GUI provides an intuitive interface for both server and client-side interactions.
 
 - **Logging and Monitoring**:
   - Maintain detailed logs for shared file access to assist with troubleshooting and system auditing.
@@ -174,15 +173,16 @@ NFS-Manager/
 └── client/                  # Python client-side script
     └── nfs_manager.py       # Python script for NFS client functionality
 └── ui_screenshots/          # Folder for UI screenshots
-    └── screenshot1.png      # Example screenshot of the UI interface
-    └── screenshot2.png      # Another screenshot of the UI
+    └── screenshot1.png      # Example screenshot of the GUI interface
+    └── screenshot2.png      # Another screenshot of the GUI
 ```
 
 ---
 
 ## 🖼️ UI Screenshots
 
-The `ui_screenshots` folder contains visual representations of the graphical user interface (GUI) for NFS management. Screenshots include:
+The `ui_screenshots` folder contains visual representations of the **Graphical User Interface (GUI)** for NFS management. Screenshots include:
+
 - **Main Dashboard**: A view of the NFS configuration and shared directory status.
 - **Logs Viewer**: A screenshot showing logs of file access activities.
 - **Configuration Panel**: A screenshot for managing server settings and shared directories.
@@ -191,12 +191,9 @@ The `ui_screenshots` folder contains visual representations of the graphical use
 
 ## 🔮 Future Enhancements
 
-### 1. **Graphical User Interface (GUI) Integration**
-   - **Objective**: Develop a GUI for easier management of the NFS server and client configurations using **Tinker**. This will allow users to:
-     - Manage shared directories.
-     - Start/stop the NFS service.
-     - View logs and troubleshoot in real-time.
-   - **Benefit**: Simplifies the NFS management process, making it user-friendly for non-technical users.
+### 1. **Additional Features for the GUI**
+   - **Objective**: Enhance the existing GUI to provide more functionalities like configuring server-side permissions, managing multiple clients, and viewing detailed access logs.
+   - **Benefit**: Further streamlines NFS management for users, making the system even more user-friendly.
 
 ### 2. **Support for Multiple Clients**
    - **Objective**: Improve the server to handle multiple clients with various access levels (e.g., read-only for some clients, read-write for others).
@@ -235,3 +232,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Special thanks to the **Linux Foundation** for providing the documentation on NFS setup.
 - Thanks to **WSL (Windows Subsystem for Linux)** for allowing the creation of this project in a Windows-based environment.
 - All contributors and open-source communities who continuously improve network protocols like NFS.
+
+---
