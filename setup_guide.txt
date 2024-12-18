@@ -5,147 +5,141 @@ Prerequisites
 Linux-based system (e.g., Ubuntu 20.04 or higher)
 Network connectivity between server and client
 Basic understanding of Linux commands
+
 Required packages:
 nfs-kernel-server (server)
 nfs-common (client)
+
+
 1. Server Setup
 Step 1: Install NFS Kernel Server
 Run the following commands on the server machine to install the required packages:
 
-bash
-Copy code
+
 sudo apt update
 sudo apt install nfs-kernel-server
+
 Step 2: Create Directories to Share
 Decide which directories you want to share over the network. For example:
 
-bash
-Copy code
+
 sudo mkdir -p /exports/backup
 sudo mkdir -p /exports/docs
 sudo mkdir -p /exports/testfolder
+
+
 Set appropriate permissions:
 
-bash
-Copy code
 sudo chmod 777 /exports/backup
 sudo chmod 755 /exports/docs
 sudo chmod 777 /exports/testfolder
+
 Step 3: Configure Exported Directories
 Edit the NFS exports file:
 
-bash
-Copy code
 sudo nano /etc/exports
+
 Add the following entries:
 
-bash
-Copy code
 /exports/backup 127.0.0.1(rw,sync,no_root_squash)
 /exports/docs 127.0.0.1(ro,sync)
 /exports/testfolder 192.168.1.0/24(rw,sync)
+
 Save and exit (Ctrl+O, Enter, Ctrl+X).
 
 Step 4: Apply Export Configurations
 Run the following command to apply the export configurations:
 
-bash
-Copy code
 sudo exportfs -a
+
 Step 5: Start and Enable NFS Service
 Start the NFS server:
 
-bash
-Copy code
 sudo systemctl start nfs-kernel-server
+
 Enable the service to start at boot:
 
-bash
-Copy code
 sudo systemctl enable nfs-kernel-server
+
+
 2. Client Setup
+
 Step 1: Install NFS Utilities
 Run the following commands on the client machine to install required packages:
 
-bash
-Copy code
+
 sudo apt update
 sudo apt install nfs-common
+
 Step 2: Mount Shared Directories
 Create local directories to mount the shared NFS directories:
 
-bash
-Copy code
 sudo mkdir -p /mnt/nfs/backup
 sudo mkdir -p /mnt/nfs/docs
 sudo mkdir -p /mnt/nfs/testfolder
+
 Mount the NFS shares:
 
-bash
-Copy code
 sudo mount -t nfs <SERVER_IP>:/exports/backup /mnt/nfs/backup
 sudo mount -t nfs <SERVER_IP>:/exports/docs /mnt/nfs/docs
 sudo mount -t nfs <SERVER_IP>:/exports/testfolder /mnt/nfs/testfolder
+
 Step 3: Verify Mounts
 List the mounted NFS directories:
 
-bash
-Copy code
 df -h | grep nfs
+
 3. Testing and Usage
 Verify Exports
 On the server, check exported directories:
 
-bash
-Copy code
 sudo exportfs
+
 Access Shared Files
 On the client, navigate to the mounted directories:
 
-bash
-Copy code
 cd /mnt/nfs/backup
 ls
+
 Unmount Directories
 When done, unmount the directories on the client:
 
-bash
-Copy code
 sudo umount /mnt/nfs/backup
 sudo umount /mnt/nfs/docs
 sudo umount /mnt/nfs/testfolder
+
 4. Logs and Troubleshooting
 View Server Logs
 Check logs on the server for NFS activity:
 
-bash
-Copy code
 sudo tail -f /var/log/syslog
+
 Filter NFS-specific logs:
 
-bash
-Copy code
 grep nfs /var/log/syslog
+
 Check Export Status
 Ensure exports are configured correctly:
 
-bash
-Copy code
 sudo showmount -e <SERVER_IP>
+
 Restart NFS Service
 If issues persist, restart the NFS server:
 
-bash
-Copy code
 sudo systemctl restart nfs-kernel-server
-5. GUI Integration (Optional)
-To manage NFS using a graphical interface:
 
-Launch the Tinker-based GUI from your project:
-bash
-Copy code
-python3 path/to/gui_script.py
+5.
+Launch the Tinker-based GUI :
+for server :
+
+python3 home/nfs_export_manager.py
+
+for Client:
+
+ python3 home/digantta/nfs_manager.py
+
 Use the GUI to configure exports, monitor activity, and manage shares.
+
 6. Notes
 Replace <SERVER_IP> with your server's IP address.
 Ensure proper firewall settings to allow NFS traffic (ports 2049 and 111).
